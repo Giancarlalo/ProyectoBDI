@@ -9,7 +9,7 @@ Tony Galo
 Kattia Gonzales
 
 
-## Programas Necesarios ## Importante
+## Programas Necesarios  ¡Importante!
 
 #Guizero
 #SQL Connector

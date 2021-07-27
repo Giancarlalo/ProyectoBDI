@@ -6,7 +6,7 @@ Proyecto Base de Datos I 0701
 -Alonso Pinto
 
 
--Giancarlo Peralta
+-Giancarlo Peralta 20171003045
 
 
 -Tony Galo 20141004617

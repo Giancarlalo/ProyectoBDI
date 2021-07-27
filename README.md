@@ -24,4 +24,4 @@ Proyecto Base de Datos I 0701
 Guizero
 
 
-SQL Connector
+MySQL Connector

@@ -9,7 +9,7 @@ Proyecto Base de Datos I 0701
 -Giancarlo Peralta
 
 
--Tony Galo
+-Tony Galo 20141004617
 
 
 -Kattia Gonzales

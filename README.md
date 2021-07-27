@@ -21,7 +21,7 @@ Proyecto Base de Datos I 0701
 
 ## Programas Necesarios  **¡Importante!**
 
-###Guizero
+###Guizero###
 
 
-###SQL Connector
+###SQL Connector###

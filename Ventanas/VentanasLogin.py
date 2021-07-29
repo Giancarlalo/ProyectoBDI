@@ -120,6 +120,9 @@ def mostrar_juego1():
 
 def mostrar_juego2():
     window_game2.show() 
+    
+def cerrar_Splash():
+    app.hide()
 
 # App -------------------
 
@@ -136,6 +139,7 @@ window_game2 = Window(app, title="Flood IT")
 window_game2.hide()
 
 window_login = Window(app, title="Pantalla de Login" , layout="grid")
+Window.after(window_login,1000,cerrar_Splash)
 window_login.hide()
 
 window_choice = Window(app, title="Seleccione un Juego", layout="grid")

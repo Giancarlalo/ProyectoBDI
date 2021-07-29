@@ -1,6 +1,6 @@
 # Imports ---------------
 
-from guizero import App, Text, Waffle, Window , PushButton, TextBox, info
+from guizero import App, Text, Waffle, Window , PushButton, TextBox, info, Picture
 from random import randint
 import random
 
@@ -123,8 +123,10 @@ def mostrar_juego2():
 
 # App -------------------
 
-app = App("Bienvenido")
-jugar_button = PushButton(app, text="Jugar", command=mostrar_login)
+app = App(bg="white",height="700",width="800")
+picture = Picture(app,image="Bienvenido.png")
+picture = Picture(app,image="Loading.gif",height=200,width=300)
+App.after(app,2000,mostrar_login)
 
 #Windows------------------------------------------
 window_game1 = Window(app, title="Destroy The Dots")

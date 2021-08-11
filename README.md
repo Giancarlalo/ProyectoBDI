@@ -28,7 +28,7 @@ MySQL Connector
 
 #Hurry Up!!
 Giancarlo:
-- El sistema debe incluir una ventana splash screen de bienvenida al iniciar el programa.
+- El sistema debe incluir una ventana splash screen de bienvenida al iniciar el programa. (listo)
 - El sistema debe incluir una ventana de login. Sólo puede ingresar un usuario registrado en el sistema. Debe existir un usuario administrador previamente registrado en el sistema. Si el usuario administrador se autentica en el juego, éste debe disponer de una pantalla adicional para poder crear, eliminar y editar los datos de autenticación de usuarios (jugadores)
 - Una vez autenticado, el sistema debe mostrar una ventana de inicio donde el jugador puede retomar su último juego pausado, o puede iniciar un nuevo juego usando botones para acceder al juego de Flood It o de Destroy the Dots.
 - El sistema debe incluir una tabla en pantalla llamada tabla o tablero de score con los 10 mejores tiempos de los juegos exitosos del jugador autenticado, indicando sobre cuál juego (Flood It o Destroy the Dots), con cuál tiempo (formato HH:MM:SS) y sobre cuál fecha (formato YYYY/MM/DD HH:mm:SS) obtuvo dicho resultado. El equipo de desarrolladores decidirá dónde incrustar/llamar/mostrar dicho componente.

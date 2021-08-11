@@ -1,6 +1,6 @@
 # Imports ---------------
 
-from guizero import App, Text, Waffle, Window , PushButton, TextBox, info, Picture
+from guizero import App, Text, Waffle, Window , PushButton, TextBox, info, Picture, Box
 from random import randint
 import random
 
@@ -74,6 +74,7 @@ score = 0
 
 # Functions Destroy The Dots-------------
 
+
 def add_dot():
     x, y = randint(0,GRID_SIZE-1), randint(0,GRID_SIZE-1)
     while board1[x, y].dotty == True:
@@ -88,6 +89,8 @@ def add_dot():
         speed = 400
     elif score > 10:
         speed = 500
+    elif score == -1:
+        speed=0
     
     all_red = True
     for x in range(GRID_SIZE):
@@ -109,11 +112,17 @@ def destroy_dot(x,y):
 
 
 #Funcion de Botones
+def comprobacion():
+    window_comprobar.show()
+
 def mostrar_login():
     window_login.show() 
 
 def mostrar_choice():
     window_choice.show()
+    
+def mostrar_registro():
+    window_registro.show()
 
 def mostrar_juego1():
     window_game1.show()    
@@ -126,31 +135,41 @@ def cerrar_Splash():
 
 # App -------------------
 
-app = App(bg="white",height="700",width="800")
-picture = Picture(app,image="Bienvenido.png")
-picture = Picture(app,image="Loading.gif",height=200,width=300)
+app = App(bg="Purple",height="700",width="800")
+box2=Box(app,width="fill",height="300")
+box=Box(app,width="fill",height="fill")
+Bienvenida_label=Text(box,text="¡BIENVENIDO!",size=80,color="white",font="Comic Sans MS")
+cargando_label=Text(box,text="Loading.....",size=30)
 App.after(app,2000,mostrar_login)
 
 #Windows------------------------------------------
-window_game1 = Window(app, title="Destroy The Dots")
+window_game1 = Window(app,bg="#788199", title="𝘿𝙚𝙨𝙩𝙧𝙤𝙮 𝙏𝙝𝙚 𝘿𝙤𝙩𝙨")
 window_game1.hide()
 
-window_game2 = Window(app, title="Flood IT")
+window_game2 = Window(app, title="𝙁𝙡𝙤𝙤𝙙 𝙄𝙩")
 window_game2.hide()
 
-window_login = Window(app, title="Pantalla de Login" , layout="grid")
-Window.after(window_login,1000,cerrar_Splash)
+window_login = Window(app,bg="medium violet red",title="Pantalla de Login")
 window_login.hide()
 
-window_choice = Window(app, title="Seleccione un Juego", layout="grid")
+window_choice = Window(app, bg="bisque", title="Seleccione un Juego")
 window_choice.hide()
+
+window_registro= Window(app,bg="bisque", title="Registro")
+window_registro.hide()
+
+window_comprobar= Window(app,bg="#666666",title="Dialogbox",height=200,width=350)
+window_comprobar.hide()
 
 
 #Destroy The Dots
+titulo=Text(window_game1,text="🅳🅴🆂🆃🆁🅾🆈 🆃🅷🅴 🅳🅾🆃🆂",size=30)
 instructions = Text(window_game1, text="Click the dots to destroy them")
 board1 = Waffle(window_game1, width=GRID_SIZE, height=GRID_SIZE, command=destroy_dot)
 board1.after(1000, add_dot)
 score_display = Text(window_game1, text="Your score is " + str(score))
+box=Box(window_game1,width="fill",height="20")
+Detener=PushButton(window_game1,text="Finalizar Juego",command=comprobacion)
 
 #Flood IT
 board = Waffle(window_game2, width=board_size, height=board_size, pad=0)
@@ -161,19 +180,63 @@ init_palette()
 
 
 #Window_login
-name_label = Text(window_login, text="Username", grid=[0,0])
-name = TextBox(window_login, grid=[1,0])
-password_label = Text(window_login, text="Password", grid=[0,2])
-surname = TextBox(window_login, grid=[1,2])
-ingresar_button =  PushButton(window_login, text="Ingresar",  command=mostrar_choice, grid=[0,3])
-registrar_button = PushButton(window_login, text="Registrar", command=mostrar_login, grid=[1,3])
+
+box=Box(window_login,width="fill",height=200)
+text_nombre=Text(window_login,text="Ingrese su nombre de usuario",color="White",size=10)
+nombre=TextBox(window_login,text="Nombre usuario",width=30)
+box=Box(window_login,width="fill",height=30)
+text_nombre=Text(window_login,text="Ingrese su contraseña",color="White",size=10)
+contrasena=TextBox(window_login,text="Ingrese su Contraseña",width=30,hide_text=True)
+box=Box(window_login,width="fill",height=30)
+ingresar_button =  PushButton(window_login, text="Ingresar", command=mostrar_choice)
+box=Box(window_login,width="fill",height=30)
+registrar_button = PushButton(window_login, text="Registrar",command=mostrar_registro)
+
+
 
 #Window_choice
+box=Box(window_choice,width="fill",height=120)
+boxdoble=Box(window_choice,width=190,height=60 ,layout="grid",grid=[0,0],visible=False)
+Reanudar=PushButton(boxdoble,text="Reanudar última partida",grid=[0,0])
+Icono=Text(boxdoble,text="▶",size=40,color="green",grid=[1,0])
 
-Destroy_button =  PushButton(window_choice, text="Destroy The Dots",  command=mostrar_juego1, grid=[0,1])
-Flood_button = PushButton(window_choice, text="Flood IT", command=mostrar_juego2, grid=[1,1])
+box=Box(window_choice,width="fill",height=30)
+boxdoble2=Box(window_choice,width=220,height=60 ,layout="grid",grid=[0,0])
+Destroy_button =  PushButton(boxdoble2, text="𝘿𝙚𝙨𝙩𝙧𝙤𝙮 𝙏𝙝𝙚 𝘿𝙤𝙩𝙨",grid=[1,0], command=mostrar_juego1)
+Icono=Text(boxdoble2,text="🔴",size=30,color="red",grid=[0,0])
+Icono=Text(boxdoble2,text="🔴",size=30,color="red",grid=[3,0])
+
+box=Box(window_choice,width="fill",height=30)
+boxdoble3=Box(window_choice,width=180,height=60 ,layout="grid",grid=[0,0])
+Icono=Text(boxdoble3,text="🌊",size=30,color="blue",grid=[0,0])
+Flood_button = PushButton(boxdoble3, text="𝙁𝙡𝙤𝙤𝙙 𝙄𝙩", command=mostrar_juego2,grid=[1,0])
+Icono=Text(boxdoble3,text="🌊",size=30,color="blue",grid=[3,0])
+
+#Window_Registro
+box1=Box(window_registro,width="fill")
+back=PushButton(box1,text="🢀",align="left",command=mostrar_login and window_registro.hide)
+titulo=Text(window_registro,text="'Ingrese los datos solicitados'",color="Black",size=15)
+box1=Box(window_registro,width="fill",height=60)
+nombreUsuario=TextBox(window_registro,text="Nombre de Usuario",width=50)
+box1=Box(window_registro,width="fill",height=20)
+contraseña1=TextBox(window_registro,text="Ingrese Contraseña",width=50)
+box1=Box(window_registro,width="fill",height=40)
+
+#Aquí guardar los datos del registro en la base de datos--------------------------------------------------------------
+Registrarse=PushButton(window_registro,text="Registrarse",command=mostrar_login and window_registro.hide)
+
+#Window_comprobacion
+box=Box(window_comprobar,width="fill",height=20)
+back=PushButton(box,text="❌",align="right")
+texto=Text(window_comprobar,text="¿Seguro quiere finalizar el juego?",size=12,color="white")
+box=Box(window_comprobar,width="fill",height=40)
+box2=Box(window_comprobar,width="fill",height=120,layout="grid",grid=[1,0])
+Espacio=Text(box2,text="                  ",grid=[0,0],enabled="false")
+Cancelar=PushButton(box2,text="𝘾𝙖𝙣𝙘𝙚𝙡𝙖𝙧",grid=[1,0])
+Espacio=Text(box2,text="       ",grid=[2,0],enabled="false")
+Aceptar=PushButton(box2,text="𝘼𝙘𝙚𝙥𝙩𝙖𝙧",grid=[3,0])
+
 
 app.display()
-
 
 

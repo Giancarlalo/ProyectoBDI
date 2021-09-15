@@ -1,0 +1,10 @@
+
+persona(idPersona, pasaporte, Pnombre, Snombre, Papellido, Sapellido, pais, esEmpleado)
+
+telefono(idTelefono, numero, area)
+
+control(idPersona, idActividad, fecha, hora)
+
+actividad(idActividad, actividad)
+
+PersonaXtelefono(idPersona, idTelefono)
